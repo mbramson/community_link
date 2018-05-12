@@ -14,4 +14,12 @@ defmodule CommunityLink.Factory do
       owner: build(:user)
     }
   end
+
+  def event_factory do
+    %CommunityLink.Cause.Event{
+      name: sequence(:name, &"org-#{&1}"),
+      description: sequence(:description, &"desc-#{&1}"),
+      organization: build(:organization)
+    }
+  end
 end
