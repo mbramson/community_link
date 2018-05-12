@@ -18,6 +18,12 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :organization_id, "Organization", class: "control-label" %>
+    <%= select f, :organization_id, data_as_select(@organizations), prompt: "(required)", class: "form-control" %>
+    <%= error_tag f, :organization_id %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

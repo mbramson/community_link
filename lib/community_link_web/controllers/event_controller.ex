@@ -10,8 +10,9 @@ defmodule CommunityLinkWeb.EventController do
   end
 
   def new(conn, _params) do
+    organizations = CommunityLink.Cause.list_organizations()
     changeset = Cause.change_event(%Event{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, organizations: organizations)
   end
 
   def create(conn, %{"event" => event_params}) do
@@ -31,9 +32,10 @@ defmodule CommunityLinkWeb.EventController do
   end
 
   def edit(conn, %{"id" => id}) do
+    organizations = CommunityLink.Cause.list_organizations()
     event = Cause.get_event!(id)
     changeset = Cause.change_event(event)
-    render(conn, "edit.html", event: event, changeset: changeset)
+    render(conn, "edit.html", event: event, changeset: changeset, organizations: organizations)
   end
 
   def update(conn, %{"id" => id, "event" => event_params}) do
