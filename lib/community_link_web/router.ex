@@ -18,6 +18,7 @@ defmodule CommunityLinkWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+    resources "/organizations", OrganizationController
   end
 
   # Other scopes may use custom stacks.

@@ -21,6 +21,8 @@ defmodule CommunityLinkWeb.ConnCase do
       use Phoenix.ConnTest
       import CommunityLinkWeb.Router.Helpers
 
+      import CommunityLink.Factory
+
       # The default endpoint for testing
       @endpoint CommunityLinkWeb.Endpoint
     end
