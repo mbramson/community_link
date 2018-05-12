@@ -69,21 +69,24 @@ defmodule CommunityLink.CauseTest do
     @invalid_attrs %{description: nil, name: nil}
 
     def event_fixture(attrs \\ %{}) do
-      insert(:event)
+      insert(:event, attrs)
     end
 
     test "list_events/0 returns all events" do
       event = event_fixture()
-      assert Cause.list_events() == [event]
+      assert [returned_event] = Cause.list_events()
+      assert returned_event.id == event.id
     end
 
     test "get_event!/1 returns the event with given id" do
       event = event_fixture()
-      assert Cause.get_event!(event.id) == event
+      assert Cause.get_event!(event.id).id == event.id
     end
 
     test "create_event/1 with valid data creates a event" do
-      assert {:ok, %Event{} = event} = Cause.create_event(@valid_attrs)
+      organization = insert(:organization)
+      attrs = @valid_attrs |> Map.put(:organization_id, organization.id)
+      assert {:ok, %Event{} = event} = Cause.create_event(attrs)
       assert event.description == "some description"
       assert event.name == "some name"
     end
@@ -103,7 +106,7 @@ defmodule CommunityLink.CauseTest do
     test "update_event/2 with invalid data returns error changeset" do
       event = event_fixture()
       assert {:error, %Ecto.Changeset{}} = Cause.update_event(event, @invalid_attrs)
-      assert event == Cause.get_event!(event.id)
+      assert event.id == Cause.get_event!(event.id).id
     end
 
     test "delete_event/1 deletes the event" do

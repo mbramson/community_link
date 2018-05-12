@@ -1,8 +1,6 @@
 defmodule CommunityLinkWeb.EventControllerTest do
   use CommunityLinkWeb.ConnCase
 
-  alias CommunityLink.Cause
-
   @create_attrs %{description: "some description", name: "some name"}
   @update_attrs %{description: "some updated description", name: "some updated name"}
   @invalid_attrs %{description: nil, name: nil}
@@ -27,7 +25,9 @@ defmodule CommunityLinkWeb.EventControllerTest do
 
   describe "create event" do
     test "redirects to show when data is valid", %{conn: conn} do
-      conn = post conn, event_path(conn, :create), event: @create_attrs
+      organization = insert(:organization)
+      attrs = @create_attrs |> Map.put(:organization_id, organization.id)
+      conn = post conn, event_path(conn, :create), event: attrs
 
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == event_path(conn, :show, id)
