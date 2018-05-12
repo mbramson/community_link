@@ -5,3 +5,4 @@
 
 <%= link "Users", to: user_path(@conn, :index), class: "btn btn-default" %>
 <%= link "Organizations", to: organization_path(@conn, :index), class: "btn btn-default" %>
+<%= link "Events", to: event_path(@conn, :index), class: "btn btn-default" %>
