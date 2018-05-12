@@ -40,6 +40,7 @@ defmodule CommunityLinkWeb do
       import CommunityLinkWeb.Router.Helpers
       import CommunityLinkWeb.ErrorHelpers
       import CommunityLinkWeb.Gettext
+      import CommunityLinkWeb.ViewHelpers
     end
   end
 

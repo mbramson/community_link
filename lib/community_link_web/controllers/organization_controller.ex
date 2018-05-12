@@ -10,8 +10,9 @@ defmodule CommunityLinkWeb.OrganizationController do
   end
 
   def new(conn, _params) do
+    users = CommunityLink.Account.list_users()
     changeset = Cause.change_organization(%Organization{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", changeset: changeset, users: users)
   end
 
   def create(conn, %{"organization" => organization_params}) do
@@ -31,9 +32,11 @@ defmodule CommunityLinkWeb.OrganizationController do
   end
 
   def edit(conn, %{"id" => id}) do
+    users = CommunityLink.Account.list_users()
+    changeset = Cause.change_organization(%Organization{})
     organization = Cause.get_organization!(id)
     changeset = Cause.change_organization(organization)
-    render(conn, "edit.html", organization: organization, changeset: changeset)
+    render(conn, "edit.html", organization: organization, changeset: changeset, users: users)
   end
 
   def update(conn, %{"id" => id, "organization" => organization_params}) do
