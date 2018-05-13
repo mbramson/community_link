@@ -12,12 +12,12 @@ body, form, ul, table {
   border-bottom: 1px solid #e5e5e5;
 }
 .logo {
-  width: 519px;
-  height: 71px;
+  width: 200px;
+  height: 25px;
   display: inline-block;
   margin-bottom: 1em;
   background-image: url("/images/cllogo.png");
-  background-size: 519px 71px;
+  background-size: 200px 25px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
