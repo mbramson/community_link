@@ -18,6 +18,7 @@ body, form, ul, table {
   margin-bottom: 1em;
   background-image: url("/images/cllogo.png");
   background-size: 200px 25px;
+  margin-top: 25px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
