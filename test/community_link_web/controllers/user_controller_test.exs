@@ -3,9 +3,9 @@ defmodule CommunityLinkWeb.UserControllerTest do
 
   alias CommunityLink.Account
 
-  @create_attrs %{name: "some name"}
-  @update_attrs %{name: "some updated name"}
-  @invalid_attrs %{name: nil}
+  @create_attrs %{name: "some name", points: 500}
+  @update_attrs %{name: "some updated name", points: 20}
+  @invalid_attrs %{name: nil, points: nil}
 
   def fixture(:user) do
     {:ok, user} = Account.create_user(@create_attrs)
@@ -15,7 +15,7 @@ defmodule CommunityLinkWeb.UserControllerTest do
   describe "index" do
     test "lists all users", %{conn: conn} do
       conn = get conn, user_path(conn, :index)
-      assert html_response(conn, 200) =~ "Listing Users"
+      assert html_response(conn, 200) =~ "Leaderboard"
     end
   end
 

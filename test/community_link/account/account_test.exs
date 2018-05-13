@@ -6,9 +6,9 @@ defmodule CommunityLink.AccountTest do
   describe "users" do
     alias CommunityLink.Account.User
 
-    @valid_attrs %{name: "some name"}
-    @update_attrs %{name: "some updated name"}
-    @invalid_attrs %{name: nil}
+    @valid_attrs %{name: "some name", points: 500}
+    @update_attrs %{name: "some updated name", points: 20}
+    @invalid_attrs %{name: nil, points: nil}
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
