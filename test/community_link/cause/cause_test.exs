@@ -193,7 +193,7 @@ defmodule CommunityLink.CauseTest do
     end
   end
 
-  describe "volunteers for organization/1" do
+  describe "volunteers_for_organization/1" do
     test "works for no events" do
       organization = insert(:organization)
       assert [] = Cause.volunteers_for_organization(organization.id)
