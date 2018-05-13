@@ -6,6 +6,9 @@ body{
   border-radius: 100%;
   max-height: 40px;
 }
+.dunkin{
+  max-height: 40px;
+}
 td.vertical-middle-align{
   vertical-align: middle;
 }

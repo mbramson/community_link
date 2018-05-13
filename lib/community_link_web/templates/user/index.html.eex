@@ -1,5 +1,6 @@
 <div class="container events-container">
   <div class="event">
+    5 more points to get a free cup of <img src="<%= static_path(@conn, "/images/dunkin.jpg") %>" class="dunkin"> Coffee!
   </div>
 </div>
 <table class="table">
