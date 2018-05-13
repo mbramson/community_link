@@ -37,7 +37,6 @@ defmodule CommunityLinkWeb.OrganizationControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = Plug.Conn.assign(conn, :users, [])
       conn = post conn, organization_path(conn, :create), organization: @invalid_attrs
       assert html_response(conn, 200) =~ "New Organization"
     end
@@ -64,7 +63,6 @@ defmodule CommunityLinkWeb.OrganizationControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, organization: organization} do
-      conn = Plug.Conn.assign(conn, :users, [])
       conn = put conn, organization_path(conn, :update, organization), organization: @invalid_attrs
       assert html_response(conn, 200) =~ "Edit Organization"
     end
