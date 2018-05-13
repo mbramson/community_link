@@ -1,26 +1,19 @@
-<h2>Listing Users</h2>
-
 <table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-
-      <th></th>
-    </tr>
-  </thead>
   <tbody>
 <%= for user <- @users do %>
     <tr>
-      <td><%= user.name %></td>
-
-      <td class="text-right">
-        <span><%= link "Show", to: user_path(@conn, :show, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Edit", to: user_path(@conn, :edit, user), class: "btn btn-default btn-xs" %></span>
-        <span><%= link "Delete", to: user_path(@conn, :delete, user), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      <td class="leader">
+        <%= if user.id == List.first(@users).id do %>
+          <img src="<%= static_path(@conn, "/images/king.png") %>" class="leader-sprite">
+        <%= end %>
       </td>
+      <td><img src="<%= static_path(@conn, "/images/avatar.jpg") %>" class="avatar"></td>
+      <td class="vertical-middle-align"><%= user.name %></td>
+      <td class="vertical-middle-align"><%= user.points %> points</td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<span><%= link "New User", to: user_path(@conn, :new) %></span>
+<span><%= link "New", to: user_path(@conn, :new), style: "color: #eee" %></span>
+<%= link "Volunteer", to: event_path(@conn, :index), class: "float-right btn btn-primary" %>
