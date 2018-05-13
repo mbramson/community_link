@@ -3,6 +3,11 @@
 </span>
 </br>
 
+<span class="event-org">
+  <%= @event.organization.name %>
+</span>
+</br>
+
 <span>
   Description:<br>
   <%= @event.description %>
@@ -15,8 +20,7 @@
 </br>
 <span>
   <a class="btn btn-primary show-event-btn inst">Instructions</a>
-  <a class="btn btn-primary show-event-btn here" href="<%= %>"></a>
-  <%= link "I'm here!", to: user_event_path(@conn, :create, user_event: %{ user_id: @user.id, event_id: @event.id }), method: :post, class: "btn btn-primary" %>
+  <%= link "I'm here!", to: user_event_path(@conn, :create, user_event: %{ user_id: @user.id, event_id: @event.id }), method: :post, class: "btn btn-primary show-event-btn here" %>
 </span>
 </br>
 

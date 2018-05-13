@@ -3,7 +3,11 @@
   <%= for event <- @events do %>
     <div class="event">
       <div>
-        <span>
+        <span class="event-org">
+          <%= event.organization.name %>
+        </span>
+        </br>
+        <span class="event-title">
           <%= event.name %>
         </span>
         <span class="float-right">
@@ -12,9 +16,12 @@
         </span>
         </br>
         <span>
+          Description:</br>
           <%= event.description %>
         </span>
-          <a href="<%= event_path(@conn, :show, event) %>" class="btn btn-primary float-right" style="background-color: #2f1a8c;">Volunteer</a>
+        <span class="float-right">
+          <a href="<%= event_path(@conn, :show, event) %>" class="btn btn-primary" style="background-color: #2f1a8c;">Volunteer</a>
+        </span>
       </div>
     </div>
   <% end %>

@@ -3,9 +3,11 @@ defmodule CommunityLinkWeb.EventController do
 
   alias CommunityLink.Cause
   alias CommunityLink.Cause.Event
+  alias CommunityLink.Repo
 
   def index(conn, _params) do
     events = Cause.list_events()
+    |> Repo.preload(:organization)
     render(conn, "index.html", events: events)
   end
 
@@ -29,6 +31,7 @@ defmodule CommunityLinkWeb.EventController do
 
   def show(conn, %{"id" => id}) do
     event = Cause.get_event!(id)
+    |> Repo.preload(:organization)
     logged_in_user = get_session(conn, "current_user")
     render(conn, "show.html", event: event, user: logged_in_user)
   end
