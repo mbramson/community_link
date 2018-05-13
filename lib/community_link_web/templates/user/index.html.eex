@@ -1,3 +1,7 @@
+<div class="container events-container">
+  <div class="event">
+  </div>
+</div>
 <table class="table">
   <theader>Leaderboard</theader>
   <tbody>

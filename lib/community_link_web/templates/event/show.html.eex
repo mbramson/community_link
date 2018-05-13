@@ -1,23 +1,20 @@
-<h2>Show Event</h2>
+<span class="event-title">
+  <%= @event.name %>
+</span>
+</br>
 
-<ul>
+<span>
+  Description:<br>
+  <%= @event.description %>
+</span>
+</br>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @event.name %>
-  </li>
+<span class="points-text">
+  You will earn <%= @event.points %> points
+</span>
+</br>
+<span><a class="btn btn-primary show-event-btn inst">Instructions</a><a class="btn btn-primary show-event-btn here">I'm here!</a></span>
+</br>
 
-  <li>
-    <strong>Description:</strong>
-    <%= @event.description %>
-  </li>
-
-  <li>
-    <strong>Points:</strong>
-    <%= @event.points %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: event_path(@conn, :edit, @event) %></span>
-<span><%= link "Back", to: event_path(@conn, :index) %></span>
+<%= link "Edit", to: event_path(@conn, :edit, @event), class: "pseudo-hidden" %>
+<%= link "Back", to: event_path(@conn, :index), class: "pseudo-hidden"%>
