@@ -10,7 +10,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Event Name</th>
         <th>Description</th>
       </tr>
     </thead>
@@ -26,8 +26,24 @@
         </tr>
       <% end %>
     </tbody>
-</table>
+  </table>
 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Volunteers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for user <- @volunteers do %>
+        <tr>
+          <td>
+            <%= user.name %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </ul>
 
 <span><%= link "Edit", to: organization_path(@conn, :edit, @organization) %></span>
