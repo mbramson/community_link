@@ -21,9 +21,6 @@ exports.config = {
     },
     stylesheets: {
       joinTo: "css/app.css",
-      order: {
-        after: ["priv/static/css/app.scss"] // concat app.css last
-      },
     },
 
     templates: {
@@ -53,15 +50,6 @@ exports.config = {
       ignore: [/vendor/]
     },
     copycat: {},
-    sass: {
-      options: {
-        includePaths: ["node_modules/bootstrap/scss",
-                       "node_modules/font-awesome/scss",
-                       "assets/css"
-                      ], // tell sass-brunch where to look for files to @import
-        precision: 8 // minimum precision required by bootstrap
-      }
-    },
   },
 
   modules: {
