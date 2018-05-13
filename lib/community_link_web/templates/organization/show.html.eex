@@ -46,5 +46,7 @@
   </table>
 </ul>
 
+<button class="btn btn-primary">Contact Volunteers</button>
+
 <span><%= link "Edit", to: organization_path(@conn, :edit, @organization) %></span>
 <span><%= link "Back", to: organization_path(@conn, :index) %></span>
