@@ -101,4 +101,19 @@ defmodule CommunityLink.Account do
   def change_user(%User{} = user) do
     User.changeset(user, %{})
   end
+
+  @doc """
+  Returns the list of users ordered by a constraint.
+
+  ## Examples
+
+      iex> fetch_users_ordered(constraint)
+      [%User{}, ...]
+
+  """
+  def fetch_users_ordered(constraint) do
+    User
+    |> order_by(^constraint)
+    |> Repo.all
+  end
 end

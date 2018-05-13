@@ -5,7 +5,7 @@ defmodule CommunityLinkWeb.UserController do
   alias CommunityLink.Account.User
 
   def index(conn, _params) do
-    users = Account.list_users()
+    users = Account.fetch_users_ordered(desc: :points)
     render(conn, "index.html", users: users)
   end
 

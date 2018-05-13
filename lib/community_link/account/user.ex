@@ -5,6 +5,7 @@ defmodule CommunityLink.Account.User do
 
   schema "users" do
     field :name, :string
+    field :points, :integer
 
     timestamps()
   end
@@ -12,7 +13,7 @@ defmodule CommunityLink.Account.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:name])
-    |> validate_required([:name])
+    |> cast(attrs, [:name, :points])
+    |> validate_required([:name, :points])
   end
 end
