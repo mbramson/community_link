@@ -2,10 +2,12 @@ defmodule CommunityLink.Cause.UserEvent do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias CommunityLink.Cause.Event
+
 
   schema "users_events" do
     belongs_to :user, CommunityLink.Account.User
-    belongs_to :event, CommunityLink.Cause.Event
+    belongs_to :event, Event
 
     timestamps()
   end

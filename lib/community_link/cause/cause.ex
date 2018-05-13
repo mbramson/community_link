@@ -44,7 +44,7 @@ defmodule CommunityLink.Cause do
       where: org.id == ^id,
       preload: [events: events]
 
-    Repo.one(query)
+    Repo.one!(query)
   end
 
   @doc """
@@ -310,5 +310,14 @@ defmodule CommunityLink.Cause do
     params = %{user_id: user_id, event_id: event_id}
     UserEvent.changeset(%UserEvent{}, params)
     |> Repo.insert
+  end
+
+  def volunteers_for_organization(org_id) do
+    #query = from user in User,
+      #left_join: events in assoc(org, :events),
+      #where: org.id == ^id,
+      #preload: [events: events]
+
+    #Repo.one(query)
   end
 end
