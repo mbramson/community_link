@@ -1,0 +1,8 @@
+<h2>Show User event</h2>
+
+<ul>
+
+</ul>
+
+<span><%= link "Edit", to: user_event_path(@conn, :edit, @user_event) %></span>
+<span><%= link "Back", to: user_event_path(@conn, :index) %></span>

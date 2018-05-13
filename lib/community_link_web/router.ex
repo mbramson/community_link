@@ -20,6 +20,7 @@ defmodule CommunityLinkWeb.Router do
     resources "/users", UserController
     resources "/organizations", OrganizationController
     resources "/events", EventController
+    resources "/users_events", UserEventController
   end
 
   # Other scopes may use custom stacks.

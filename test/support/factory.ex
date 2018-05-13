@@ -22,4 +22,11 @@ defmodule CommunityLink.Factory do
       organization: build(:organization)
     }
   end
+
+  def user_event_factory do
+    %CommunityLink.Cause.UserEvent{
+      user: build(:user),
+      event: build(:event)
+    }
+  end
 end
