@@ -1,11 +1,6 @@
-<h2>Show Organization</h2>
+<h2><%= @organization.name %></h2>
 
 <ul>
-
-  <li>
-    <strong>Name:</strong>
-    <%= @organization.name %>
-  </li>
 
   <table class="table">
     <thead>

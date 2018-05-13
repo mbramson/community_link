@@ -2,7 +2,7 @@
 
 <label>Message</label>
 <br>
-<textarea></textarea>
+<textarea style="width: 500px; height: 500px;"></textarea>
 
 <br>
 <button class="btn btn-primary">Send!</button>
