@@ -22,7 +22,8 @@ defmodule CommunityLinkWeb.EventController do
         |> put_flash(:info, "Event created successfully.")
         |> redirect(to: event_path(conn, :show, event))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        organizations = CommunityLink.Cause.list_organizations()
+        render(conn, "new.html", changeset: changeset, organizations: organizations)
     end
   end
 
@@ -47,7 +48,8 @@ defmodule CommunityLinkWeb.EventController do
         |> put_flash(:info, "Event updated successfully.")
         |> redirect(to: event_path(conn, :show, event))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", event: event, changeset: changeset)
+        organizations = CommunityLink.Cause.list_organizations()
+        render(conn, "edit.html", event: event, changeset: changeset, organizations: organizations)
     end
   end
 

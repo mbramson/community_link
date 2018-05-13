@@ -37,7 +37,6 @@ defmodule CommunityLinkWeb.EventControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = Plug.Conn.assign(conn, :organizations, [])
       conn = post conn, event_path(conn, :create), event: @invalid_attrs
       assert html_response(conn, 200) =~ "New Event"
     end
@@ -64,7 +63,6 @@ defmodule CommunityLinkWeb.EventControllerTest do
     end
 
     test "renders errors when data is invalid", %{conn: conn, event: event} do
-      conn = Plug.Conn.assign(conn, :organizations, [])
       conn = put conn, event_path(conn, :update, event), event: @invalid_attrs
       assert html_response(conn, 200) =~ "Edit Event"
     end

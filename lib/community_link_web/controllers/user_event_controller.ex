@@ -23,7 +23,9 @@ defmodule CommunityLinkWeb.UserEventController do
         |> put_flash(:info, "User event created successfully.")
         |> redirect(to: user_event_path(conn, :show, user_event))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        users = CommunityLink.Account.list_users()
+        events = CommunityLink.Cause.list_events()
+        render(conn, "new.html", changeset: changeset, users: users, events: events)
     end
   end
 
@@ -49,7 +51,9 @@ defmodule CommunityLinkWeb.UserEventController do
         |> put_flash(:info, "User event updated successfully.")
         |> redirect(to: user_event_path(conn, :show, user_event))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", user_event: user_event, changeset: changeset)
+        users = CommunityLink.Account.list_users()
+        events = CommunityLink.Cause.list_events()
+        render(conn, "edit.html", user_event: user_event, changeset: changeset, users: users, events: events)
     end
   end
 

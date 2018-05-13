@@ -22,7 +22,8 @@ defmodule CommunityLinkWeb.OrganizationController do
         |> put_flash(:info, "Organization created successfully.")
         |> redirect(to: organization_path(conn, :show, organization))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        users = CommunityLink.Account.list_users()
+        render(conn, "new.html", changeset: changeset, users: users)
     end
   end
 
@@ -47,7 +48,8 @@ defmodule CommunityLinkWeb.OrganizationController do
         |> put_flash(:info, "Organization updated successfully.")
         |> redirect(to: organization_path(conn, :show, organization))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", organization: organization, changeset: changeset)
+        users = CommunityLink.Account.list_users()
+        render(conn, "edit.html", organization: organization, changeset: changeset, users: users)
     end
   end
 
