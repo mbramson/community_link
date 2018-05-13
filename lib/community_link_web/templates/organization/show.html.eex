@@ -46,7 +46,7 @@
   </table>
 </ul>
 
-<button class="btn btn-primary">Contact Volunteers</button>
+<%= link "Contact Volunteers", to: "/organizations/#{@organization.id}/send_message", class: "btn btn-primary" %>
 
 <span><%= link "Edit", to: organization_path(@conn, :edit, @organization) %></span>
 <span><%= link "Back", to: organization_path(@conn, :index) %></span>

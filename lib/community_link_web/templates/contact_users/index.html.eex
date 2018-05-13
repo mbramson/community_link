@@ -1,0 +1,8 @@
+<h2>Send a message to your volunteers</h2>
+
+<label>Message</label>
+<br>
+<textarea></textarea>
+
+<br>
+<button class="btn btn-primary">Send!</button>
