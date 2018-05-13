@@ -65,7 +65,7 @@ defmodule CommunityLink.CauseTest do
   describe "events" do
     alias CommunityLink.Cause.Event
 
-    @valid_attrs %{description: "some description", name: "some name"}
+    @valid_attrs %{description: "some description", name: "some name", points: 2}
     @update_attrs %{description: "some updated description", name: "some updated name"}
     @invalid_attrs %{description: nil, name: nil}
 

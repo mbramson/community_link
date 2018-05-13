@@ -1,7 +1,7 @@
 defmodule CommunityLinkWeb.EventControllerTest do
   use CommunityLinkWeb.ConnCase
 
-  @create_attrs %{description: "some description", name: "some name"}
+  @create_attrs %{description: "some description", name: "some name", points: 3}
   @update_attrs %{description: "some updated description", name: "some updated name"}
   @invalid_attrs %{description: nil, name: nil}
 
