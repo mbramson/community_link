@@ -18,6 +18,7 @@ defmodule CommunityLinkWeb.Router do
 
     get "/", PageController, :index
     resources "/users", UserController
+    get "/organizations/:org_id/send_message", ContactUsersController, :index
     resources "/organizations", OrganizationController
     resources "/events", EventController
     resources "/users_events", UserEventController
