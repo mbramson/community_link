@@ -21,6 +21,7 @@ defmodule CommunityLinkWeb.Router do
     resources "/organizations", OrganizationController
     resources "/events", EventController
     resources "/users_events", UserEventController
+    post "/fake_login/:user_id", FakeUserLoginController, :create
   end
 
   # Other scopes may use custom stacks.

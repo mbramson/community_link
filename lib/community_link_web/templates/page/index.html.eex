@@ -7,3 +7,9 @@
 <%= link "Organizations", to: organization_path(@conn, :index), class: "btn btn-default" %>
 <%= link "Events", to: event_path(@conn, :index), class: "btn btn-default" %>
 <%= link "UsersEvents", to: user_event_path(@conn, :index), class: "btn btn-default" %>
+
+<%= if is_nil(@current_user) do %>
+  Not Logged in
+<%= else %>
+  Logged in as <%= "#{@current_user.name}" %>
+<% end %>

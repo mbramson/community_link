@@ -9,7 +9,7 @@
         <% end %>
       </td>
       <td><img src="<%= static_path(@conn, "/images/avatar.jpg") %>" class="avatar"></td>
-      <td class="vertical-middle-align"><%= user.name %></td>
+      <td class="vertical-middle-align"><%= link "#{user.name}", to: user_path(@conn, :show, user.id) %></td>
       <td class="vertical-middle-align"><%= user.points %> points</td>
     </tr>
 <% end %>

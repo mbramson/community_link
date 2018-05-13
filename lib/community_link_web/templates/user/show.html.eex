@@ -7,6 +7,12 @@
     <%= @user.name %>
   </li>
 
+  <li>
+    <strong>Points:</strong>
+    <%= @user.points %>
+  </li>
+
+  <%= link"Log In As This User", to: fake_user_login_path(@conn, :create, @user.id) , method: :post, class: "btn btn-primary" %>
 </ul>
 
 <span><%= link "Edit", to: user_path(@conn, :edit, @user) %></span>
