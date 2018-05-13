@@ -33,7 +33,6 @@ defmodule CommunityLinkWeb.OrganizationController do
 
   def edit(conn, %{"id" => id}) do
     users = CommunityLink.Account.list_users()
-    changeset = Cause.change_organization(%Organization{})
     organization = Cause.get_organization!(id)
     changeset = Cause.change_organization(organization)
     render(conn, "edit.html", organization: organization, changeset: changeset, users: users)
