@@ -7,6 +7,7 @@ defmodule CommunityLink.Cause.Organization do
     field :name, :string
     field :description, :string
     belongs_to :owner, CommunityLink.Account.User
+    has_many :events, CommunityLink.Cause.Event
 
     timestamps()
   end

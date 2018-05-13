@@ -7,6 +7,27 @@
     <%= @organization.name %>
   </li>
 
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for event <- @organization.events do %>
+        <tr>
+          <td>
+            <%= event.name %>
+          </td>
+          <td>
+            <%= event.description %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+
 </ul>
 
 <span><%= link "Edit", to: organization_path(@conn, :edit, @organization) %></span>

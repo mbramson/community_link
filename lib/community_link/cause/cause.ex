@@ -38,7 +38,14 @@ defmodule CommunityLink.Cause do
       ** (Ecto.NoResultsError)
 
   """
-  def get_organization!(id), do: Repo.get!(Organization, id)
+  def get_organization!(id) do
+    query = from org in Organization,
+      left_join: events in assoc(org, :events),
+      where: org.id == ^id,
+      preload: [events: events]
+
+    Repo.one(query)
+  end
 
   @doc """
   Creates a organization.
