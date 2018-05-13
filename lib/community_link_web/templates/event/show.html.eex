@@ -12,6 +12,11 @@
     <%= @event.description %>
   </li>
 
+  <li>
+    <strong>Points:</strong>
+    <%= @event.points %>
+  </li>
+
 </ul>
 
 <span><%= link "Edit", to: event_path(@conn, :edit, @event) %></span>

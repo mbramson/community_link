@@ -19,6 +19,7 @@ defmodule CommunityLink.Factory do
     %CommunityLink.Cause.Event{
       name: sequence(:name, &"org-#{&1}"),
       description: sequence(:description, &"desc-#{&1}"),
+      points: 1,
       organization: build(:organization)
     }
   end
