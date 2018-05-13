@@ -313,11 +313,11 @@ defmodule CommunityLink.Cause do
   end
 
   def volunteers_for_organization(org_id) do
-    #query = from user in User,
-      #left_join: events in assoc(org, :events),
-      #where: org.id == ^id,
-      #preload: [events: events]
+    query = from user in User,
+      left_join: events in assoc(user, :events),
+      left_join: org in assoc(events, :organization),
+      where: org.id == ^org_id
 
-    #Repo.one(query)
+    Repo.all(query)
   end
 end
