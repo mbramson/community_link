@@ -29,7 +29,8 @@ defmodule CommunityLinkWeb.OrganizationController do
 
   def show(conn, %{"id" => id}) do
     organization = Cause.get_organization!(id)
-    render(conn, "show.html", organization: organization)
+    volunteers = Cause.volunteers_for_organization(id)
+    render(conn, "show.html", organization: organization, volunteers: volunteers)
   end
 
   def edit(conn, %{"id" => id}) do

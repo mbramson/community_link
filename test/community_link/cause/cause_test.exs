@@ -3,6 +3,7 @@ defmodule CommunityLink.CauseTest do
 
   alias CommunityLink.Cause
   alias CommunityLink.Cause.UserEvent
+  alias CommunityLink.Account.User
 
   describe "organizations" do
     alias CommunityLink.Cause.Organization
@@ -189,6 +190,27 @@ defmodule CommunityLink.CauseTest do
       event = insert(:event)
       assert {:ok, user_event} = Cause.add_user_to_event(user, event)
       assert %UserEvent{} = user_event
+    end
+  end
+
+  describe "volunteers_for_organization/1" do
+    test "works for no events" do
+      organization = insert(:organization)
+      assert [] = Cause.volunteers_for_organization(organization.id)
+    end
+
+    test "works for one event with no users" do
+      organization = insert(:organization)
+      insert(:event, organization: organization)
+      assert [] = Cause.volunteers_for_organization(organization.id)
+    end
+
+    test "works for one event with two users" do
+      organization = insert(:organization)
+      event = insert(:event, organization: organization)
+      insert(:user, events: [event])
+      insert(:user, events: [event])
+      assert [%User{}, %User{}] = Cause.volunteers_for_organization(organization.id)
     end
   end
 end

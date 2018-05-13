@@ -2,10 +2,14 @@ defmodule CommunityLink.Account.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias CommunityLink.Cause.Event
+  alias CommunityLink.Cause.UserEvent
+
 
   schema "users" do
     field :name, :string
     field :points, :integer
+    many_to_many :events, Event, join_through: UserEvent
 
     timestamps()
   end
