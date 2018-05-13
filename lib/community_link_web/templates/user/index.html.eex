@@ -6,7 +6,7 @@
       <td class="leader">
         <%= if user.id == List.first(@users).id do %>
           <img src="<%= static_path(@conn, "/images/king.png") %>" class="leader-sprite">
-        <%= end %>
+        <% end %>
       </td>
       <td><img src="<%= static_path(@conn, "/images/avatar.jpg") %>" class="avatar"></td>
       <td class="vertical-middle-align"><%= user.name %></td>
