@@ -13,7 +13,11 @@
   You will earn <%= @event.points %> points
 </span>
 </br>
-<span><a class="btn btn-primary show-event-btn inst">Instructions</a><a class="btn btn-primary show-event-btn here">I'm here!</a></span>
+<span>
+  <a class="btn btn-primary show-event-btn inst">Instructions</a>
+  <a class="btn btn-primary show-event-btn here" href="<%= %>"></a>
+  <%= link "I'm here!", to: user_event_path(@conn, :create, user_event: %{ user_id: @user.id, event_id: @event.id }), method: :post, class: "btn btn-primary" %>
+</span>
 </br>
 
 <%= link "Edit", to: event_path(@conn, :edit, @event), class: "pseudo-hidden" %>

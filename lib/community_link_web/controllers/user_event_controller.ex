@@ -3,9 +3,12 @@ defmodule CommunityLinkWeb.UserEventController do
 
   alias CommunityLink.Cause
   alias CommunityLink.Cause.UserEvent
+  alias CommunityLink.Repo
 
   def index(conn, _params) do
-    users_events = Cause.list_users_events()
+    users_events = Cause.list_users_events
+    |> Repo.preload(:event)
+    |> Repo.preload(:user)
     render(conn, "index.html", users_events: users_events)
   end
 
@@ -20,7 +23,7 @@ defmodule CommunityLinkWeb.UserEventController do
     case Cause.create_user_event(user_event_params) do
       {:ok, user_event} ->
         conn
-        |> put_flash(:info, "User event created successfully.")
+        |> put_flash(:success, "Congrats #{user_event.user.name}! You earned #{user_event.event.points} points!")
         |> redirect(to: user_event_path(conn, :show, user_event))
       {:error, %Ecto.Changeset{} = changeset} ->
         users = CommunityLink.Account.list_users()

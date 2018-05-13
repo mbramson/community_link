@@ -12,6 +12,7 @@
     <tr>
 
       <td class="text-right">
+        <%= user_event.event.points %>
         <span><%= link "Show", to: user_event_path(@conn, :show, user_event), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Edit", to: user_event_path(@conn, :edit, user_event), class: "btn btn-default btn-xs" %></span>
         <span><%= link "Delete", to: user_event_path(@conn, :delete, user_event), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>

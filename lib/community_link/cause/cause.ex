@@ -248,9 +248,12 @@ defmodule CommunityLink.Cause do
 
   """
   def create_user_event(attrs \\ %{}) do
-    %UserEvent{}
+    user_event = %UserEvent{}
     |> UserEvent.changeset(attrs)
-    |> Repo.insert()
+    |> Repo.insert!
+    |> Repo.preload(:event) 
+    |> Repo.preload(:user)
+    {:ok, user_event}
   end
 
   @doc """

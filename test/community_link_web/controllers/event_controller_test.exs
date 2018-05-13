@@ -33,7 +33,7 @@ defmodule CommunityLinkWeb.EventControllerTest do
       assert redirected_to(conn) == event_path(conn, :show, id)
 
       conn = get conn, event_path(conn, :show, id)
-      assert html_response(conn, 200) =~ "Show Event"
+      assert html_response(conn, 200) =~ "Description:"
     end
 
     test "renders errors when data is invalid", %{conn: conn} do

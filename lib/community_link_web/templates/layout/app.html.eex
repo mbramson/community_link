@@ -15,7 +15,7 @@
     <div class="container">
       <header class="header">
         <nav role="navigation" class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="/">CommunityLink</a>
+          <a href="<%= page_path @conn, :index %>"><span class="logo navbar-brand"></span><a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -26,16 +26,16 @@
               <a class="nav-item nav-link" href="/organizations">Organizations</a>
               <%= if Plug.Conn.get_session(@conn, "current_user") do %>
                 <a class="nav-item nav-link" href="/"><%= "#{Plug.Conn.get_session(@conn, "current_user").name}" %></a>
-              <%= else %>
+              <% else %>
                 <a class="nav-item nav-link" href="/">Sign up!</a>
               <% end %>
             </div>
           </div>
         </nav>
-        <a href="<%= page_path @conn, :index %>"><span class="logo"></span><a>
       </header>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-success" role="alert"><%= get_flash(@conn, :success) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
       <main role="main">

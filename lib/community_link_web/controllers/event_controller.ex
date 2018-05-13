@@ -29,7 +29,8 @@ defmodule CommunityLinkWeb.EventController do
 
   def show(conn, %{"id" => id}) do
     event = Cause.get_event!(id)
-    render(conn, "show.html", event: event)
+    logged_in_user = get_session(conn, "current_user")
+    render(conn, "show.html", event: event, user: logged_in_user)
   end
 
   def edit(conn, %{"id" => id}) do
